@@ -1,0 +1,9 @@
+Pedro
+
+Git:
+https://github.com/Manchas2k4/advanced_programming
+
+Email:
+
+Libro de texto:
+Advanced Programming in the UNIX Enviroment (Tercera Edición), W. Richard Steves y Stephen A. Rago
