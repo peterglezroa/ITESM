@@ -16,3 +16,7 @@ Por lo tanto:
 1. 2x + y + z = 10 (Ecuación para el fósforo)
 2. 3x + 3y = 9 (Ecuación para el potasio)
 3. 5x + 4y + z = 19 (Ecuación para el nitrógeno)
+
+#### Problema 4
+Determinar un polinomio de interpolación para una función o conjunto de datos.  
+Contexto: En Estadística la función de densidad de distribución de una variable aleatoria normal, por lo que es necesario calcular probabilidades, las cuales están relacionadas con áreas bajo la curva, las cuales son integrales, por ejemplo:
