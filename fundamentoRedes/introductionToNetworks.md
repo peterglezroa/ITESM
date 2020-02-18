@@ -55,7 +55,7 @@ Network infrastructures can vary in terms of:
 * Number and type of services available
 * Area of responsability
 #### Local Area Network (LAN)
-A network infrastructure that provides acces to users and end devices in a small geographical area, which is typically an enterprise, home, or small business network owned and managed by an individual or IT department.
+A network infrastructure that provides access to users and end devices in a small geographical area, which is typically an enterprise, home, or small business network owned and managed by an individual or IT department.
 * It has an owner.
 * Mainly to share resources.
 
@@ -65,11 +65,12 @@ A network infrastucture that provides access to other networks over a wide geogr
 * To make connections between different LAN's.
 
 #### Internet
-* Home and Small Office Internet connections
+The internet is a worlwide collection of interconnected networks. 
+* Home and Small Office Internet connections (need of ISP - Internet Service Provider)
   * Cable
     * Fastest
   * DSL
-    * sdf
+    * Digital Subscriber lines
   * Cellular
     * Accesible in almost every place
   * Satellite
@@ -79,20 +80,20 @@ A network infrastucture that provides access to other networks over a wide geogr
   * Dedicated Leased Line
     * Very expensive.
     * You don't have to share.
+    * Almost not used anymore because it isn't fast enough to be worth it
   * Ethernet WAN
-    * ss
   * DSL
     * sdf
   * Satellite
     * sdf
 
 #### Intranet
-* fsd
+Private connection of LAN's and WAN's that belong to an organization, and is designed to be accessible only by the organizations's memebers.
 
 #### Extranet
-* sdf
+Provide secure and safe access to individuals who work for a different organization, but require access to the organization's data
 
-## Network Architecut
+## Network Architecture
 
 #### Converged network
 It shares all the packages in one channel (videos, phone)

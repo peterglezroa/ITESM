@@ -1,7 +1,7 @@
 The Network as a Platform (1.3)
 ===
 ## Converged network
-Network where all the packages (data, telephone, video, etc) through one channel.
+Network where all the packages (data, voice, video) through one channel.
 
 ## Network Architecture
 #### Fault Tolerance
