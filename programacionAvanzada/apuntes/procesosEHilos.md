@@ -28,4 +28,6 @@ Cuando se empieza una tarea, ya no se puede cancelar hasta que acabe.
 { Definir proceso }  
 { Estructura de memoria de un proceso (stack, heap, etc) }  
 { Estados de un proceso }  
+#### Repaso Sistemas Operativos
+* Para hacer que un proceso no dañe otros procesos o el sistema operativo: lo aislamo porque todo proceso cuando corre sólo pueder correr en 2 modos (kernel y usuario). Para acceder al kernel se necesitan llamadas al sistema.
 ## Deadlocks (Interbloqueos)

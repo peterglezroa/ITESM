@@ -54,6 +54,17 @@ const int *const cpci = &ci;  /* cpci is a constant pointer to an constant int *
 * It is guaranteed not to point to any object.
 * Good practice -> failure by a function (than returns a pointer) return this type of pointer.
 
+### Ejemplos
+<pre><code>#define SIZE 10
+int i, j = 0;
+int a[SIZE] = {1,2,3,4,5,6,7,8,9,10}
+
+for(i = SIZE/2; i < SIZE; i++){
+  b[j++] = a[i];
+} // Esto es O(n)
+
+memcpy(b, &a[5], sizeof(int) * (SIZE/2)); // Esto es O(1)
+</code></pre>
 
 [memory]: ../img/memorystruct.png
 [pointercode]: ../img/pointerdeclaration.png
