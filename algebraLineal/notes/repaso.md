@@ -1,12 +1,8 @@
-# INTRO
-### Problemas ejemplo
-#### Problema 1
-*. CF = 0.3(Parcial1 + Parcial2) + 0.25ED + 0.15EO
-Donde:
-...*. P1 = 0.3(ER1) + 0.2(AP1) + 0.50(EP1)
-...*. P2 = 0.3(ER2) + 0.2(AP2) + 0.50(EP2)
+REPASO
+==
+### Problema 1
 
-#### Problema 2
+### Problema 2
 Considera que para crecer cierto cultivo se recomienda que cada metro cuadrado de tierra sea tratado con 10 unidades de fósforo, 9 unidades de potasio, y 19 unidades de nitrógeno. En el mercado existen 3 diferentes marcas de fertilizantes (A,B,C). Un kilo de la marca A contiene 2 unidades de fósforo, 3 de potasio, y 5 de nitrógeno; un kilo de la marca B contiene 1 unidad de fósforo, 3 de potasio y 4 nitrógeno; un kilo de la marca C contiene 1 unidad de fósforo y una de nitrógeno.
 ¿Será posible con la recomendación usando alguna combinación de fertilizantes? En caso de que sea posible, ¿esta forma es única o se pueden más de una forma? ¿Cuántas?
 *. A = x
@@ -29,12 +25,41 @@ $$\begin{bmatrix}
 0 & 0 & 0 & | & 0
 \end{bmatrix}$$
 
-**Conclusión: Tiene infinitas soluciones porque 0 = 0**
+**Conclusión: Tiene infinitas soluciones porque 0 = 0. Por lo tanto sí es posible una combinación. Por ejemplo: 2 kg de la marca A, un kg de la marca B y 5 kg de la marca C**
 $$ x= 7 - z $$
 $$ y = -4 + z $$
 $$ z = z $$
 $$ z \in I\!R $$
-#### Problema 4
+
+**Si consideramos que sólo se pueden comprar en enteros sólo se puede en 4 formas:**
+
+A | B | C
+--|---|---
+3|0|4
+2|1|5
+1|2|6
+0|3|7
+
+### Problema 3
+$$ {f_1} + {f_2} = 20 $$
+$$ {f_1} + {f_3} = 25 $$
+$$ {f_3} + {f_4} = 30 $$
+$$ {f_2} + {f_4} = 25 $$
+
+Al resolver, obtenemos:
+$$\begin{bmatrix}
+1 & 0 & 0 & -1 & | & 5 \\
+0 & 1 & 0 & 1 & | & 25 \\
+0 & 0 & 1 & 1 & | & 30 \\
+0 & 0 & 0 & 0 & | & 0 
+\end{bmatrix}$$
+
+**Por lo que:**
+$$ 5 <= {f_4} <= 25 $$
+**Una posible configuración es:**
+$$ f1 = 0\\ {f_2}=20  \\ {f_3}=25 \\ {f_4}=5$$
+
+### Problema 4
 Determinar un polinomio de interpolación para una función o conjunto de datos.  
 Contexto: En Estadística la función de densidad de distribución de una variable aleatoria normal, por lo que es necesario calcular probabilidades, las cuales están relacionadas con áreas bajo la curva, las cuales son integrales, por ejemplo:
 $$ {F_{x}} = {e^\frac{x²}{2}}  $$
@@ -81,7 +106,7 @@ $$\begin{bmatrix}
 
 **Conclusión: podemos ver que es un sistema inconsistente porque la última equación es imposible**
 
-#### Problema 5
+### Problema 5
 **1. 2x + y + 3z = 2**  
 **2. -6x -6y -6z = -4**  
 **3. 4x +11y -3z = -2**
@@ -107,7 +132,7 @@ $$\begin{bmatrix}
 \end{bmatrix}$$
 **Conclusión: Tiene infinitas soluciones ya que la última ecuación es 0 = 0**
 
-#### Problema 6
+### Problema 6
 **7x -5y = 3**  
 Tiene infinitas soluciones, dadas por:
 $$ \left\lbrace (x,y) | y=\frac{7x - 3}{5} \right\rbrace$$  

@@ -52,9 +52,21 @@ Switch(config-if)#</code></pre>
 
 #### Limit acces to device configurations
 * Secure device access
-  * To set password
+  * To set password to EXEC access
   <pre><code>enable secret &lt;password&gt;</code></pre>
+* Virtual Terminal (VTY) line enables remote access to the device.
+  * To secure VTY lines:
+<pre><code>S1(config) # line con 0 // it can be from 0 to 15
+S1(config-line) # password cisco
+S1(config-line) # login
+S1(config-line) # exit
+S1(config) #</code></pre>
+* Encrypt Passwords
+<pre><code>S1(config) # service password-encryption</code></pre>
 
+* Prevent unwanted DNS lookups.
+<pre><code>S1(config) # no ip domain-lookup</code></pre>
+ 
 #### Save configurations
 
 
