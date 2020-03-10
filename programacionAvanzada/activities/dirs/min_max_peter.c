@@ -1,9 +1,3 @@
-/*====================================================================================================*
- Programación Avanzada
- ---------------------
- EXAMEN 1
- Pedro Luis González Roa A01651517
- *====================================================================================================*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -18,9 +12,10 @@
 /*
  * Inputs:
  *  - Starting directory
+ *  - Recursive -r flag
  * Output:
- *  - Min number in files
- *  - Max number in files
+ *  - Min number in all files
+ *  - Max number in all files
  * Errors:
  *  - 
  * */
