@@ -1,24 +1,76 @@
 Directory management
 ===
+### File types
+* Encoded in the _st_mode_ member of the `struct stat`.
+
+File                  |Used for                       |Notes                     |Macro
+----------------------|-------------------------------|--------------------------|--------------
+Regular File          |Contains data of some form.    |There is no distinction to the UNIX kernel whether this data is text or binary|S_ISREG()
+Directory File        |Contains the name of other files and other pointers to information on these files.|Any process that has read permission for a directory file can read the contents, but only the kernel can write directly to a directory file.|S_ISDIR()
+Block Special File    |Provides buffered I/O access in fixed-size units to devices such as disk drivers||S_ISBLK()
+Character Special File|Provides unbuffered I/O access in variable-sized units to devices||S_ISCHR()
+FIFO                  |Used for communication between processes|Is also called _pipe_|S_ISFIFO()
+Socket                |Used for network communication between processes||S_ISLNK()
+Symbolic link         |File that points to another file||S_ISSOCK()
+
+<center style="color:red;font-size:1.5rem;">¡Note: All devices on a system are either _block special files_ or _character special_files!</center>
+
 ### Functions
-* getcwd()
-  * get current work directory
-* opendir(directory)
+
+#### stat
+```c
+#include <sys/stat.h>
+int stat(const char *restrict pathname, struct stat *restrict buf);
+```
+**Returns 0 if OK, -1 on error**
+* Returns a structure of information about the named file.
+* The _buf_ is a pointer to a structure that we must supply. The functions fill in the structure. See `struct stat` in **Variable types**
+
+#### fstat
+```c
+#include <sys/stat.h>
+int fstat(int filedescriptor, struct *buf);
+```
+**Returns 0 if OK, -1 on error**
+* Obtains information about the file that is already open on the _filedescriptor_.
+* The _buf_ is a pointer to a structure that we must supply. The functions fill in the structure. See `struct stat` in **Variable types**
+
+#### fstatat
+```c
+#include <sys/stat.h>
+int fstatat(int filedescriptor, const char *restrict pathname, struct stat *restrict buf, int flag);
+```
+**Returns 0 if OK, -1 on error**
+* Provides a way to return the file statistics for a pathname relative to an open directory represented by the _filedescriptor_ argument.
+* The _buf_ is a pointer to a structure that we must supply. The functions fill in the structure. See `struct stat` in **Variable types**
+
+#### lstat
+```c
+#include <sys/stat.h>
+int lstat(const char *restrict pathname, struct stat *restrict buf);
+```
+**Returns 0 if OK, -1 on error**
+* Returns information about the symbolic link, not the file referenced by the symbolic link.
+* The _buf_ is a pointer to a structure that we must supply. The functions fill in the structure. See `struct stat` in **Variable types**
+
+#### getcwd()
+  * get current work directory 
+#### opendir(directory)
   * returns null if it couldnt open the file
     * directory doesnt exit
     * permissions
     * not a directory
-* readdir(directory)
+#### readdir(directory)
   * goes through all the pointers (NOT FILES) of the files
   * file '.' is the current directory
   * file '..' is the previous directory
   * the file are not ordered. They are how they were inserted
-* stat(filename, &info)
+#### stat(filename, &info)
   * receives information of the file and saves it into info
   * variables:
     * _st_mode_ -> to check thing like file type
       * S_ISDIR(info.st_mode)
-* lstat()
+#### lstat()
   * respects the links
     * stat gives the information of the file that the link is pointing to
 
@@ -28,8 +80,8 @@ Directory management
   * Always use _PATH_MAX_+1
 
 ### Variable type
-* _DIR_
-* _struct dirent_
+#### _DIR_
+#### _struct dirent_
   * found inside the directory
   * pointers to files
 <pre><code>struct dirent{
@@ -39,7 +91,7 @@ Directory management
   unsigned char  d_type;      /* Type of file; not supported by all filesystem types */
   char  d_name[256];          /* Null-terminated filename */
 }</code></pre>
-* _struct stat_
+#### _struct stat_
   * information about a file
 <pre><code>struct stat{
   dev_t st_dev;             /* ID of device containing file */

@@ -71,3 +71,57 @@ $$
 {x_1} - 7{x_2} - 2{x_3} = 2 \\
 8{x_1} + 6{x_2} - 5{x_3} = 15
 $$
+
+#### Problema ?
+${v_1} = \begin{bmatrix}1 \\ -1 \\ 3\end{bmatrix}, {v_2} = \begin{bmatrix}-1 \\ 5 \\ 1\end{bmatrix}, {v_3} = \begin{bmatrix}1 \\ -3 \\ 1\end{bmatrix}$
+
+**Solución: Para saber si generan ${|R^3}$, cualquier vector de {R^3} se puede escribir como combinación lineal de ${v_1}, {v_2}, {v_3}$. Para eso, deben existir ${c_1}, {c_2}, {c_3}$ tales que $\begin{bmatrix}x\\y\\z\end{bmatrix}=w={c_1}{v_1}+{c_2}{v_2}+{c_3}{v_3}$**
+
+<center>Matriz aumentada</center>
+
+$$
+\begin{bmatrix}
+1 & -1 & 1 & | & x\\
+-1 & 5 & -3 & | & y\\
+3 & 1 & 1 & | & z
+\end{bmatrix}
+-rref->
+\begin{bmatrix}
+1 & 0 & \frac{1}{2} & | & \frac{1}{4}\left(5xty\right)\\
+0 & 1 & \frac{-1}{2} & | & \frac{1}{4}\left(x+y\right)\\
+0 & 0 & 0 & | & \left(x+y-z\right)
+\end{bmatrix}
+$$
+**El SEL es inconsistente si 4x+y-z = 0**
+
+#### Problemas: Determine si los vectores dados generan ${R^3}$. Si no lo generan, diga que espacio lineal sí generan geométricamente y analíticamente:
+1. ${v_1} = \begin{bmatrix}2\\2\\2\end{bmatrix},{v_2} = \begin{bmatrix}0\\0\\3\end{bmatrix}, {v_3}=\begin{bmatrix}0\\1\\1\end{bmatrix}$
+$$
+\begin{bmatrix}
+2 & 0 & 0 & | & x\\
+2 & 0 & 1 & | & y\\
+2 & 3 & 1 & | & z
+\end{bmatrix}
+-rref->
+\begin{bmatrix}
+1 & 0 & 0 & | & \frac{x}{2}\\
+0 & 1 & 0 & | & \frac{1}{3}\left(y+x\right)\\
+0 & 0 & 1 & | & -x+y
+\end{bmatrix}
+$$
+Como el SEL es consistente entonces $Gen\left({v_1},{v_2},{v_3}=R^3=\begin{bmatrix}x\\y\\z\end{bmatrix}\epsilon R^3:4x+y-z=0\right)$
+
+2. ${v_1} = \begin{bmatrix}2\\-1\\3\end{bmatrix},{v_2} = \begin{bmatrix}4\\1\\2\end{bmatrix}, {v_3}=\begin{bmatrix}8\\-1\\8\end{bmatrix}$
+$$
+\begin{bmatrix}
+2 & 4 & 8 & | & x\\
+-1 & -1 & -1 & | & y\\
+3 & 2 & 8 & | & z
+\end{bmatrix}
+-rref->
+\begin{bmatrix}
+1 & 0 & 2 & | & \frac{x}{2}\\
+0 & 1 & 0 & | & \frac{1}{6}\left(x+2y\right)\\
+0 & 0 & 0 & | & \frac{1}{6}\left(-5x+8y+6z\right)
+\end{bmatrix}
+$$
