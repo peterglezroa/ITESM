@@ -1,3 +1,10 @@
+/*====================================================================================================*
+ Programación Avanzada
+ ---------------------
+ EXAMEN 1
+ Pedro Luis González Roa A01651517
+ 10-03-2020
+ *====================================================================================================*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -12,10 +19,9 @@
 /*
  * Inputs:
  *  - Starting directory
- *  - Recursive -r flag
  * Output:
- *  - Min number in all files
- *  - Max number in all files
+ *  - Min number in files
+ *  - Max number in files
  * Errors:
  *  - 
  * */
@@ -107,6 +113,7 @@ int * list(int * array, char *dir_name, char *program){
       }
     }
 //  }
+  return array;
 }
 
 int * min_max(int * array, char *file_name, char *program){

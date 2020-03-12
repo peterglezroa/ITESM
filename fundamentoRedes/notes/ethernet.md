@@ -18,12 +18,14 @@ Ethernet
 ![MAC][MAC]
 * The lower sublayer of the data link layer.
 * Implemented by hardware
-1. Data encapsulation
-    * Frame assembly before transmission and frame disassembly upon reception of a frame.
-    1. Frame delimiting: provides important delimiters that are used to identify a group of bits that make up a frame.
-    2. Addressing: contains the Layer 3 PDU and also provides for data link layer addressing.
-    3. Error detection: contains a trailer used to detect any errors in transmissions.
-2. Media access control
+##### Data encapsulation
+* Frame assembly before transmission and frame disassembly upon reception of a frame.
+1. Frame delimiting: provides important delimiters that are used to identify a group of bits that make up a frame.
+2. Addressing: contains the Layer 3 PDU and also provides for data link layer addressing.
+3. Error detection: contains a trailer used to detect any errors in transmissions.
+##### Ethernet frame structure
+
+##### Media access control
 * Responsible for the placement of frames on the media and the removal of frames from the media. 
 * 48-bit **binary** expressed as 12 **hexadecimal** digits.
 ![MAC structure address][MACstruct]
@@ -36,6 +38,7 @@ Ethernet
 
 ##### Broadcast MAC address
 * Contains a destination IPv4 address that has all ones (1s) in the host portion. This means that all hosts on that local network will receive and process the packet.
+* We use ARP protocol
 ![broadcast][broadcast]
 
 ##### Multicast MAC address
@@ -62,7 +65,7 @@ Ethernet
   * Lowest level of latency.
   * immediately forwards a packet after reading the destination address.
 * **Fragment-free switching**:
-  * Stores the first 64 bytes of the frame before forwarding.
+  * Stores the first 64 bytes of the frame before forwarding. Because the max amount of bytes in 100 meters is 64 bytes.
   * The most network errors and collisions occur during the first 64 bytes.
 
 #### Port-based and shared memory buffering

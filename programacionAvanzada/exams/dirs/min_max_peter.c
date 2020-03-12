@@ -1,9 +1,3 @@
-/*====================================================================================================*
- Programación Avanzada
- ---------------------
- EXAMEN 1
- Pedro Luis González Roa A01651517
- *====================================================================================================*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -18,9 +12,10 @@
 /*
  * Inputs:
  *  - Starting directory
+ *  - Recursive -r flag
  * Output:
- *  - Min number in files
- *  - Max number in files
+ *  - Min number in all files
+ *  - Max number in all files
  * Errors:
  *  - 
  * */
@@ -87,7 +82,7 @@ int * list(int * array, char *dir_name, char *program){
   // Min max de los archivos de este directorio
   while((direntry = readdir(dir)) != NULL){
 // Luego quitar esto
-    array[0] = 0; array[1] = 0;
+    array[0] = 0; array[1] = 0; // Reseteamos los valores porque piden los min y max de cada archivo y no del directorio completo... (;_;)
     if(strcmp(direntry->d_name, "..") != 0 && strcmp(direntry->d_name, ".") != 0){ // Ignorar . y ..
       sprintf(path,"%s/%s",dir_name, direntry->d_name);
       lstat(path, &info);
