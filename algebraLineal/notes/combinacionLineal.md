@@ -125,3 +125,7 @@ $$
 0 & 0 & 0 & | & \frac{1}{6}\left(-5x+8y+6z\right)
 \end{bmatrix}
 $$
+
+4. Sean ${v_1},{v_2}...{v_z} \epsilon \R^n$ y $c \epsilon \R$. Si $u,v \epsilon Gen\left\{{v_1},{v_2}\right\}$ demuestre que:
+    1. $u+x \epsilon Gen\left\{{v_1},{v_2}\right\}$
+**$u+x \epsilon Gen\left\{{v_1},{v_2}\right\}$ si y sólo si es combinación lineal de ${v_1}, .., {v_k}$:**
