@@ -32,7 +32,7 @@ router#
 
 #### Show routing table
 ```cisco
-router# show interface brief
+router# show rout brief
 ```
 
 #### Set virtual terminals and passwords
