@@ -4,3 +4,6 @@
 [submodule "ldaw/actividades/expressFramework"]
 	path = ldaw/actividades/expressFramework
 	url = https://github.com/peterglezroa/expressFramework
+[submodule "dispmoviles/android/PowerMgmt"]
+	path = dispmoviles/android/PowerMgmt
+	url = https://github.com/peterglezroa/PowerMgmt
