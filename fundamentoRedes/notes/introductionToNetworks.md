@@ -98,6 +98,6 @@ Provide secure and safe access to individuals who work for a different organizat
 #### Converged network
 It shares all the packages in one channel (videos, phone)
 
-[enddevice]: ./img/endDevices.png
-[intermediary]: ./img/intermediaryDevices.png
-[media]: ./img/networkMedia.png
+[enddevice]: ../img/endDevices.png
+[intermediary]: ../img/intermediaryDevices.png
+[media]: ../img/networkMedia.png

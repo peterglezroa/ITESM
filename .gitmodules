@@ -1,0 +1,12 @@
+[submodule "dispmoviles/android/partial-activity-peterglezroa"]
+	path = dispmoviles/android/partial-activity-peterglezroa
+	url = https://github.com/damtecqro/partial-activity-peterglezroa
+[submodule "ldaw/actividades/expressFramework"]
+	path = ldaw/actividades/expressFramework
+	url = https://github.com/peterglezroa/expressFramework
+[submodule "dispmoviles/android/PowerMgmt"]
+	path = dispmoviles/android/PowerMgmt
+	url = https://github.com/peterglezroa/PowerMgmt
+[submodule "dispmoviles/android/activity-1-kotlin-peterglezroa"]
+	path = dispmoviles/android/activity-1-kotlin-peterglezroa
+	url = https://github.com/damtecqro/activity-1-kotlin-peterglezroa
