@@ -7,3 +7,6 @@
 [submodule "dispmoviles/android/PowerMgmt"]
 	path = dispmoviles/android/PowerMgmt
 	url = https://github.com/peterglezroa/PowerMgmt
+[submodule "dispmoviles/android/activity-1-kotlin-peterglezroa"]
+	path = dispmoviles/android/activity-1-kotlin-peterglezroa
+	url = https://github.com/damtecqro/activity-1-kotlin-peterglezroa
