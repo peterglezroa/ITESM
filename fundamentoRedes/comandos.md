@@ -32,7 +32,8 @@ router#
 
 #### Show routing table
 ```cisco
-router# show rout brief
+router# show ip route brief
+router# show ipv6 route brief
 ```
 
 #### Set virtual terminals and passwords
@@ -43,6 +44,30 @@ router(config-line)# password pass
 router(config-line)# login
 router(config-line)# exit
 router(config t)# enable secret secret_pass
+```
+
+#### Show interface status
+```cisco
+R1# show ip interface g0/0
+R2# show ipv6 interface g0/0
+```
+
+#### Configurar ipv6
+```cisco
+R2(config)# ipv6 unicast-routing
+R2(config)# interface g0/0
+R2(config-if)# ipv6 address fe80::1 link-local
+R2(config-if)# ipv6 address 2001:DB8:ACAD:A::1/64
+R2(config-if)# no shutdown
+```
+
+#### Passwords
+```cisco
+R1(config)# enable secret cisco
+R1(config-line)# line vty 0 5
+R1(config-line)# password class
+R1(config-line)# login
+R1(config-line)# exit
 ```
 
 ### Switch
@@ -65,9 +90,19 @@ S1(config terminal)# ip default-gateway 192.168.1.1
 #### Configure virtual terminals and passwords
 ```cisco
 S1# config terminal
-S1(config t)# line vty 0 15
+S1(config)# int vlan1
+S1(config-if)# ip address 192.168.1.1 255.255.255.0
+S1(config-if)# no shutdown
+S1(config)# line vty 0 15
 S1(config-line)# password pass
 S1(config-line)# login
 S1(config-line)# exit
-S1(config t)# enable secret secret_pass
+S1(config)# enable secret secret_pass
+```
+
+#### Habilitar ipv6
+```cisco
+Switch(config)# sdm prefer dual-ipv4-and-ipv6 default
+Switch(config)# exit
+Switch# reload
 ```
