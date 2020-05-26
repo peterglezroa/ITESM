@@ -68,7 +68,7 @@ if [[ $? -ne 0 ]] ; then
 	exit 1
 fi
 cal=$((cal+50))
-rm test.txt a.out
+#rm test.txt a.out
 
 echo "=>grade: $cal"
 echo "los puntos restantes se evalUan al revisar los comentarios"

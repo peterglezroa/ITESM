@@ -44,9 +44,9 @@ void *calcular_thread(void *arg){
           }
           matrix_C[i][j] = sum;
       }
-//      fprintf(stdout, "\n");
+      fprintf(stdout, "\n");
   }
-//	pthread_exit(0);
+	pthread_exit(0);
 }
 
 int main(int argc, char * argv[]){
@@ -156,13 +156,12 @@ int main(int argc, char * argv[]){
   for( int i = 0; i < thread_amount; i++ ){
     pthread_join(threads[i],NULL);
   }
-  printf("%i\n", size_matrixA);
-  for( int i = 0; i < size_matrixA; i++ ){
-   for( int j = 0; j < size_matrixA; j++ ){
-      printf("%.3f\t", matrix_C[i][j]);
-    }
-    printf("\n");
-  }
+//  for( int i = 0; i < size_matrixA; i++ ){
+//    for( int j = 0; j < size_matrixA; j++ ){
+//      fprintf(stdout, "%.3f\t", matrix_C[i][j]);
+//    }
+//    fprintf(stdout,"\n");
+//  }
 
   fclose(matA);
   fclose(matB);
