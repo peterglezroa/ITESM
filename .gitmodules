@@ -10,3 +10,9 @@
 [submodule "dispmoviles/android/activity-1-kotlin-peterglezroa"]
 	path = dispmoviles/android/activity-1-kotlin-peterglezroa
 	url = https://github.com/damtecqro/activity-1-kotlin-peterglezroa
+[submodule "dispmoviles/flutter/listview_flutter"]
+	path = dispmoviles/flutter/listview_flutter
+	url = https://github.com/damtecqro/listview_flutter
+[submodule "dispmoviles/flutter/actividad-parcial-topi"]
+	path = dispmoviles/flutter/actividad-parcial-topi
+	url = https://github.com/damtecqro/actividad-parcial-topi
