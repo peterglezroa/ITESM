@@ -194,6 +194,59 @@ De esta forma, la matriz de transformación es:
 $$A=\begin{bmatrix}1 & 0 \\ 0 & 0\end{bmatrix}$$
 
 ## Kernel e Imagen
+### Imagen
+**Idea clave: La ecuación ${f{(x)} = a}$ tiene **solución** siempre que $a$ está en la _**imagen**_ de $f$.**
+
+![imagen_ejemplo][imagen_ejemplo]
+
+El análogo a lo anterior en Álgebra Lineal es la ecuación matricial:
+$$Ax = b$$
+
+#### Ejemplo:
+**Considere la transformación lineal cuya matriz de transformación es:**
+$$A=\begin{bmatrix}1 & 0 \\ 1 & 0\end{bmatrix}$$
+**Determine:**
+1. **¿Qué vectores $\begin{bmatrix}x \\ y\end{bmatrix} \in \R^2$ se mapean en $\begin{bmatrix}0 \\ 0\end{bmatrix}$?**
+$$
+\begin{bmatrix}1 & 0 \\ 1 & 0 \end{bmatrix}
+\begin{bmatrix}x \\ y\end{bmatrix} = 
+\begin{bmatrix}0 \\ 0\end{bmatrix}
+$$
+Resolviendo el SEL considerando la forma _rref_ de la matriz aumentada, se obtiene:
+$$
+\begin{bmatrix}1 & 0 & | & 0 \\ 1 & 0 & | & 0\end{bmatrix}-rref->
+\begin{bmatrix}1 & 0 & | & 0 \\ 0 & 0 & | & 0\end{bmatrix}
+$$
+de donde concluimos que el SEL homogéneo tiene **infinitas soluciones**, dadas por $x=0$ y $y\in \R$ (variable libre). De modeo que las soluciones del SEL homogéneo son de la forma
+$$
+\begin{bmatrix}x \\ y\end{bmatrix} = 
+\begin{bmatrix}0 \\ y\end{bmatrix} =
+y\begin{bmatrix}0 \\ 1\end{bmatrix}
+$$
+
+2. **¿Qué vectores sí se pueden generar a partir de $A$?**
+$$
+\begin{bmatrix}1 & 0 \\ 1 & 0\end{bmatrix}
+\begin{bmatrix}x \\ y\end{bmatrix} =
+\begin{bmatrix}w \\ z\end{bmatrix}
+$$
+que es justamente un SEL no-homogéneo. Resolviendo el SEL considerando la forma _rref_ de la matriz aumentada, se obtiene:
+$$
+\begin{bmatrix}1 & 0 & | & w \\ 1 & 0 & | & z \end{bmatrix}-rref->
+\begin{bmatrix}1 & 0 & | & 0 \\ 0 & 0 & | & z-w\end{bmatrix}
+$$
+de donde concluimos que el SEL homogéneo tiene _infinitas soluciones_, soluciones dads por $x=0$ y $y \in \R$ (variable libre). De modo que las soluciones del SEL homogéneo son de la forma
+$$
+\begin{bmatrix}w \\ z\end{bmatrix} = 
+\begin{bmatrix}w \\ w\end{bmatrix} = 
+w\begin{bmatrix}1 \\ 1\end{bmatrix}
+$$
+De este modo, tendremos que:
+
+a. Los vectores son mapeados al cero vector pertenecn al conjunto  
+$$Gen \left\{\begin{bmatrix}0\\1\end{bmatrix}\right\}$$
+b. Los vectores que son generados por la transformación pertenecen al conjunto
+$$Gen \left\{\begin{bmatrix}1 \\ 1\end{bmatrix}\right\}$$
 
 ### Ejercicios
 1. sdf
@@ -242,3 +295,4 @@ $$
 [cortes]: ../img/tl_cortes.png
 [proyecciones]: ../img/tl_proyecciones.png
 [polares]: ../img/tl_polares.png
+[imagen_ejemplo]: ../img/tl_imagen_ejemplo.png
