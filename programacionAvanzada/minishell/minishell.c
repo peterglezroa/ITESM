@@ -21,7 +21,7 @@
 #define MAX_BUFFER 512
 
 void exec_command(char *string){
-  int argc = 1, i = 0, str_size, reading = 1;
+  int argc = 1, i = 0, str_size, quotes = 0;
   char **argv, *pointer1, *pointer2;
   // Contar cantidad de argumentos
   for(pointer1 = string; *pointer1 != '\0'; pointer1++){
@@ -33,7 +33,7 @@ void exec_command(char *string){
   // Obtener commando y argumento
   pointer2 = string;
   for(pointer1 = string; *pointer1 != '\0'; pointer1++){
-    if( *pointer1 == ' ' || *pointer1 == '\n' ){
+    if( (*pointer1 == ' ' || *pointer1 == '\n') && !quotes){
       str_size = pointer1-pointer2;
       if(str_size > 0){
         argv[i] = malloc(sizeof(char)*str_size+1);
@@ -42,8 +42,16 @@ void exec_command(char *string){
 //        fprintf(stdout, "argumento %i: %s\n", i, argv[i]);
         i++;
       }
-      pointer1++;
-      pointer2=pointer1;
+      pointer2=pointer1+1;
+    }else if( *pointer1 == '"' ){
+//      fprintf(stdout, "%i", quotes);
+      quotes = (quotes+1)%2;
+      // Closing quotes
+      if( quotes == 0 ){
+        pointer2++;
+        *pointer1 = ' ';
+        pointer1--;
+      }
     }
   }
   // Correr commando
@@ -76,8 +84,7 @@ void parse_run_commands(char *input){
         exit(0);
       }
       fork_count++;
-      pointer1++;
-      pointer2=pointer1;
+      pointer2=pointer1+1;
     }
   }
   while(fork_count > 0){
@@ -88,7 +95,7 @@ void parse_run_commands(char *input){
 
 void interactive_mode(){
   int running = 1;
-  char buffer[512];
+  char buffer[MAX_BUFFER];
   while(running){
     // Prompt
     fprintf(stdout, "mini-shell> ");
@@ -108,6 +115,25 @@ void interactive_mode(){
   }
 }
 
+void run_file(char *file_name){
+  char buffer[MAX_BUFFER];
+  FILE *file;
+  if( (file = fopen(file_name, "r")) == NULL ){
+    fprintf(stdout, "No se pudo abrir el archivo");
+    exit(-2);
+  }
+  while( fgets(buffer, sizeof(buffer), file) != NULL ){
+    if( strcmp(buffer, "quit\n") == 0 || strcmp(buffer, "quit") == 0 ){
+      fprintf(stdout, "Quitting...\n");
+      break;
+    }else{
+      fprintf(stdout, "\n mini-shell> %s", buffer);
+      parse_run_commands(buffer);
+    }
+  }
+  fclose(file);
+}
+
 int main(int argc, char *argv[]){
   // Validar que máximo sólo se pase el archivo del script
   if (argc > 2){
@@ -119,7 +145,8 @@ int main(int argc, char *argv[]){
     fprintf(stdout, "Entering interactive mode...\n");
     interactive_mode();
   }else{ // Modo lote
-
+    fprintf(stdout, "Executing script file...\n");
+    run_file(argv[1]);
   }
 
   return 0;
