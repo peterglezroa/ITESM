@@ -1,5 +1,4 @@
 # UNIX
-===
 ### Kernel
 * Servicios básicos sobre el cual se monta un sistema operativo
 * Sobre esto se agregan micro servicios (la mayoría de lo que usamos normalmente en la computadora)
