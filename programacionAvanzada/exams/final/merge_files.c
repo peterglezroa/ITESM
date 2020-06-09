@@ -39,7 +39,7 @@ int main(int argc, char * argv[]){
   }
 
   // Checar directorio
-  if( dir_file(argv[1]) == -1 ){
+  if( dir_file(argv[1]) != 0 ){
     fprintf(stderr, "%s: Not a directory\n", argv[0]);
     return -2;
   }
@@ -110,7 +110,7 @@ void append(char * input_file){
     fprintf(stderr,  "Could not open %s file\n", input_file);
     return;
   }
-  fprintf(stdout, "Appending %s ...\n", input_file);
+  fprintf(stdout, "Merging %s ...\n", input_file);
   while( fgets(buffer, MAX_BUFFER_SIZE, file_input) != NULL ){
     fputs(buffer, file_output);
   }
