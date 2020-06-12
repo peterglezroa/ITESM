@@ -1,0 +1,39 @@
+Escribir un programa llamado merge_files.c que se encarga de unir, recursivamente hasta un cierto nivel, los archivos de un directorio en un solo archivo final. La forma de invocar el programa es:
+
+$merge_files directory mergefile max_level
+
+El programa recibe como parámetros el directorio donde se encuentran los archivos, el nombre del archivo final y el máximo nivel de profundidad que puede recorrer (considera que el nivel 1 es el directorio original).
+
+Ejemplos de uso:
+
+$ merge_files
+usage: merge_files directory merge_file max_level
+
+$ merge_files noexiste salida.txt 3
+merge_files: No such file or directory
+
+$ merge_files dir1 salida.txt -1
+merge_files: the max level must be a positive integer number greater than 1
+
+$ merge_files dir1 salida.txt 0
+merge_files: the max level must be a positive integer number greater than 1
+
+$ merge_files dir1 salida.txt 3
+Working in dir1
+merging dir1/chapter2.txt...
+merging dir1/chapter1.txt...
+dir1/no_read_dir1.txt cannot be read...
+Working in dir1/dir2
+dir1/dir2/no_read_dir2.txt cannot be read...
+merging dir1/dir2/chapter3.txt...
+merging dir1/dir2/chapter4.txt...
+Working in dir1/dir2/dir3
+dir1/dir2/dir3/no_read_dir3.txt cannot be read...
+merging dir1/dir2/dir3/chapter6.txt...
+merging dir1/dir2/dir3/chapter5.txt...
+
+$ merge_files dir1 salida.txt 1
+Working in dir1
+merging dir1/chapter2.txt...
+merging dir1/chapter1.txt...
+dir1/no_read_dir1.txt cannot be read...
