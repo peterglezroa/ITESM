@@ -1,3 +1,0 @@
-# Definitions
-1. Software Engineering
-...*. Software Engineering is the stydy and application of engineering to the design, development, and maintenance of software.

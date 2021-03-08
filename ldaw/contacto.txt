@@ -1,7 +1,0 @@
-# LDAW
-*. Curso
-...*. http://ldaw.ejsanchez.com.mx/
-*. Links
-...*. Hoja de aprendizaje -> https://docs.google.com/spreadsheets/d/13iQIOAiQtCGITO8331PiwRo6cXRlgDd6XQ9Vd790tc4/edit?ts=5e42fe10#gid=783151179
-...*. Hoja de aprendizaje parejas -> https://docs.google.com/spreadsheets/d/14Hdvqd0hPh13jn6faOmccSUUZm68TFSfjdvFMY4tpFU/edit?ts=5e42fe9b#gid=783151179
-...*. Hoja de aprendizaje equipos -> https://docs.google.com/spreadsheets/d/1nIX2AlhrIm1weFGN7npWW7PGO_N_hT3JDGcaRq2tNVw/edit?ts=5e42ff07#gid=783151179
