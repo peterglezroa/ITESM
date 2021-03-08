@@ -71,4 +71,4 @@ S1(config) #</code></pre>
 
 
 
-[structure]: ../img/ioscommandstructure.png
+[structure]: ./img/ioscommandstructure.png

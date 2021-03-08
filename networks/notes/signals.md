@@ -27,6 +27,6 @@ Protocol stack: There are different layers of communications, and every layer ha
   ![waves][waves]
 
 
-[system]: ../img/communicationsystem.png
-[waves]: ../img/waves.gif
-[attenuation]: ../img/attenuation.jpg
+[system]: ./img/communicationsystem.png
+[waves]: ./img/waves.gif
+[attenuation]: ./img/attenuation.jpg

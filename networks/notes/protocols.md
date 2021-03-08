@@ -92,4 +92,4 @@ Provides instructions to a machine for the control of a specific interface on a 
 
 Protocol suite is a set of protocols that work together to provide comprehensive network communication services.
 
-[protocols]: ../img/protocols_protocols.png
+[protocols]: ./img/protocols_protocols.png

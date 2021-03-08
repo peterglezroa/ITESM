@@ -1,0 +1,32 @@
+Router 1
+enable
+config t
+
+hostname R1
+
+service password-enc
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 4
+password cisco
+login
+loggin sync
+
+enable password class
+
+int s0/0/0
+desc Interfaz que se conecta con el ISP
+ip address 209.165.200.225 255.255.255.252
+no shut
+
+int g0/0
+desc Interfaz que soporta la red
+ip add 191.168.200.254 255.255.255.0
+no shut
+
+ip route 0.0.0.0 0.0.0.0 s0/0/0

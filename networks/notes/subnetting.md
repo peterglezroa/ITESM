@@ -205,11 +205,11 @@ Routers and firewall devices have an IP address assigned to each interface which
 ![Address ranges IPv4][addressRangesExample]
 
 
-[subnettingExample]: ../img/subnetting_subnettingExample.png
-[octet]: ../img/subnetting_octet.png
-[subnetTableExample]: ../img/subnetting_subTableExample.png
-[classlessSubnetting]: ../img/subnetting_classlessSubnetting.png
-[vlsmPractice]: ../img/subnetting_vlsmPractice.png
-[vlsmChart]: ../img/subnetting_vlsmChart.png
-[addressRangesExample]: ../img/subnetting_addressRangesExample.png
-[subnetAllocationExample]: ../img/subnetting_subnetAllocationExample.png
+[subnettingExample]: ./img/subnetting_subnettingExample.png
+[octet]: ./img/subnetting_octet.png
+[subnetTableExample]: ./img/subnetting_subTableExample.png
+[classlessSubnetting]: ./img/subnetting_classlessSubnetting.png
+[vlsmPractice]: ./img/subnetting_vlsmPractice.png
+[vlsmChart]: ./img/subnetting_vlsmChart.png
+[addressRangesExample]: ./img/subnetting_addressRangesExample.png
+[subnetAllocationExample]: ./img/subnetting_subnetAllocationExample.png

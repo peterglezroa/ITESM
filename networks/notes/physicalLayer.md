@@ -88,6 +88,6 @@ Physical Layer
   * Installations must be inspected for damage
   * Equipment must be grounded correctly
 
-[physicalLayer]: ../img/physicalLayer.png
-[disturbance]: ../img/copperdisturbance.png
-[copper]: ../img/coppermedia.png
+[physicalLayer]: ./img/physicalLayer.png
+[disturbance]: ./img/copperdisturbance.png
+[copper]: ./img/coppermedia.png

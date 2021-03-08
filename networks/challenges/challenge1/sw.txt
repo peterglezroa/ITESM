@@ -1,0 +1,22 @@
+enable
+config t
+
+hostname SW-taqueria
+
+service password-enc
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 4
+password cisco
+login
+logging sync
+
+int vlan1
+desc Vlan
+ip add 191.168.200.1 255.255.255.0
+no shut

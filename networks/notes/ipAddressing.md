@@ -110,5 +110,5 @@ Are used for local **addressing within a site or between a limited number of sit
 * Range from **FC00::/7** to **FDFF::/7**
 
 
-[ipaddress]: ../img/ipaddressing_ipAddress.png
-[subnetmask]: ../img/ipaddressing_subnetRepresentation.png
+[ipaddress]: ./img/ipaddressing_ipAddress.png
+[subnetmask]: ./img/ipaddressing_subnetRepresentation.png

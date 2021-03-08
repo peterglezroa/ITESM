@@ -94,11 +94,11 @@ In addition to having the currect duplex setting, it is also necessary to have t
 ![destination local][remote]
 
 
-[ethernet]: ../img/ethernet_ethernet.png
-[MAC]: ../img/ethernet_MAC.png
-[MACstruct]: ../img/ethernet_MACstruct.png
-[unicast]: ../img/ethernet_unicast.png
-[broadcast]: ../img/ethernet_broadcast.png
-[multicast]: ../img/ethernet_multicast.png
-[local]: ../img/ethernet_local.png
-[remote]: ../img/ethernet_remote.png
+[ethernet]: ./img/ethernet_ethernet.png
+[MAC]: ./img/ethernet_MAC.png
+[MACstruct]: ./img/ethernet_MACstruct.png
+[unicast]: ./img/ethernet_unicast.png
+[broadcast]: ./img/ethernet_broadcast.png
+[multicast]: ./img/ethernet_multicast.png
+[local]: ./img/ethernet_local.png
+[remote]: ./img/ethernet_remote.png
