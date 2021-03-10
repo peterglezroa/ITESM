@@ -1,105 +1,100 @@
-“Apegándome al Código de Ética de los Estudiantes del Tecnológico de Monterrey, 
+“Apegándome al Código de Ética de los Estudiantes del Tecnológico de Monterrey,
 me comprometo a que mi actuación en esta actividad esté regida por la honestidad académica”.
 
 --------- MyISP --------
 Ya configurado
 
 -------- RFrontera -------
-enabled
-confg t
+enable
+config t
 
-host name RFrontera
+hostname RFrontera
 
-service password-decription
-no ip domain-lookat
+service password
+no ip domain-lookup
 
 line con 0
 password cisco
 login
-logingg sync
+loggin sync
 
-line vtty 0 1 5
-password ci5co
-loggin
+line vty 0 15
+password cisco
+login
+loggin sync
 
-enable passvvord class
-
-
-int S0 / 0 /0
-descripción La conexion con el ISP.
-Observa que el ISP es el DCE.
-ip address 134.89.254.245
-           255.255.255.252
-shutdown
+enable password class
 
 
-int S0/0/1
-descriptión La conexion con el RA.
-El que da servicio a las subredes de colour verde.
+int s0/0/0
+desc La conexion con el ISP. Observa que el ISP es el DCE.
+ip address 134.89.254.245 255.255.255.252
+no shutdown
+
+
+int s0/0/1
+desc La conexion con el RA. El que da servicio a las subredes de colour verde.
 ip address 198.68.1.245 255.255.255.252
-! Esta interfaz es tipo DCE.
 clock rate 1280
 no shut
 
 
 int g0/0
-ip add 210.100.155.126 255.255.255.27
+desc La conexion con la red 210.100.155.96/27
+ip add 210.100.155.126 255.255.255.224
 no shut
 
 int g0/1
-descrip Zona de servidores
+desc Zona de servidores
 ip address 210.10.10.94 255.255.255.224
 no shut
 
-
 ip route 0.0.0.0  0.0.0.0  134.89.254.246
 
-
-router eigrp 2000
+router eigrp 200
 network 210.10.10.0
 network 210.100.155.0
 network 198.68.1.0
-default-information originate
-passive-int s0/0/0
-passive-int s0/0/1
+;; default-information originate
 passive-int g0/0
 passive-int g0/1
 
 
 -------- RA ----------
-enabled
-confg t
+enable
+config t
 
-hostsname RA
+hostname RA
 
 service password-enc
-no ip domain lookat
+no ip domain lookup
 
-line con 8
-password cisco
-loggin
-loging sync
-
-linge vty 0 4
+line con 0
 password cisco
 login
+loggin sync
 
-enable paswuord class
+line vty 0 4
+password cisco
+login
+loggin sync
 
-int S0/0/0
-description La conexion con el RFrontera 
+enable password class
+
+int s0/0/0
+desc La conexion con el RFrontera
 ip address 198.68.1.250 255.255.255.252
 no shut
 
 int g0/0
-description Conexion con s0
-ip add 210.100.130.190 255.255.255.192
-shut
+desc Conexion con s0
+ip add 210.100.130.126 255.255.255.128
+no shut
 
 int g0/1
 description Conexion con s1
-ip add 210.100.130.126 255.255.255.128
-shut
+ip add 210.100.130.190 255.255.255.192
+no shut
 
 
 router eigrp 200
@@ -109,26 +104,22 @@ passive-int g0/0
 passive-int g0/1
 
 ---- switch3 : Zona de servers -----
-ena
+enable
 config t
 hostname S3
 
-line connsole 0
-passsword cisco
-loging
-login sync
-
-line vwty 0 15
+line console 0
 password cisco
 login
+loggin sync
 
-int vlan 10
-ip addess 210.10.10.93   255.255.255.254
+line vty 0 15
+password cisco
+login
+loggin sync
+
+int vlan 1
+ip add 210.10.10.93   255.255.255.254
 no shut
 
-ip defaul gateway  210.10.10.95
-
-
-
-
-
+ip default-gateway  210.10.10.95

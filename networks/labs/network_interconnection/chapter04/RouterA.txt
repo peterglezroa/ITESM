@@ -1,0 +1,44 @@
+RouterA
+=======
+enable
+config t
+
+hostname RouterA
+
+service password-enc
+no ip domain-lookup
+
+banner motd #
+Personal no autorizado sera perseguido por la ley!!!#
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 4
+password cisco
+login
+loggin sync
+
+enable password class
+
+int s0/1/1
+desc Interfaz que se conecta con el Router Frontera
+ip add 222.10.30.246 255.255.255.252
+no shut
+
+in g0/0/0
+desc Interfaz con la red 172.16.0.0
+ip add 172.16.0.254 255.255.255.0
+no shut
+
+int lo0
+desc Interfaz loopback
+ip add 172.18.0.1 255.255.255.0
+no shut
+
+router OSPF 1
+network 172.16.0.0 0.0.0.255 area 0
+network 172.18.0.0 0.0.0.255 area 0
+network 222.10.30.244 0.0.0.3 area 0

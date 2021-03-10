@@ -1,0 +1,52 @@
+RouterFrontera
+=======
+enable
+config t
+
+hostname RouterFrontera
+
+service password-enc
+no ip domain-lookup
+
+banner motd #
+Personal no autorizado sera perseguido por la ley!!!#
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 4
+password cisco
+login
+loggin sync
+
+enable password class
+
+int s0/1/0
+desc Interfaz que se conecta con el ISP
+ip add 132.254.89.34 255.255.255.252
+no shut
+
+int s0/1/1
+desc Interfaz que se conecta con el RouterA
+ip add 222.10.30.245 255.255.255.252
+clock rate 128000
+no shut
+
+in g0/0/0
+desc Interfaz con la red 172.20.0.0
+ip add 172.20.0.254 255.255.255.0
+no shut
+
+int lo0
+desc Interfaz loopback
+ip add 172.22.0.1 255.255.255.0
+no shut
+
+ip route 0.0.0.0 0.0.0.0 s0/1/0
+router OSPF 1
+network 172.20.0.0 0.0.0.255 area 0
+network 172.22.0.0 0.0.0.255 area 0
+network 222.10.30.244 0.0.0.3 area 0
+default-information originate

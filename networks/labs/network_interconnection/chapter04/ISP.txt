@@ -1,0 +1,45 @@
+ISP
+===
+enable
+config t
+
+hostname ISP
+
+service password-enc
+no ip domain-lookup
+
+banner motd #
+Personal no autorizado sera perseguido por la ley!!!#
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 4
+password cisco
+login
+loggin sync
+
+enable password class
+
+int s0/1/0
+desc Interfaz que se conecta con el Router Frontera
+ip add 132.254.89.33 255.255.255.252
+clock rate 128000
+no shut
+
+in g0/0/0
+desc Interfaz con la red 129.10.10.0
+ip add 129.10.10.254 255.255.255.0
+no shut
+
+int lo0
+desc Interfaz loopback
+ip add 129.10.100.1 255.255.255.0
+no shut
+
+ip route 172.16.0.0 255.255.255.0 s0/1/0
+ip route 172.18.0.0 255.255.255.0 s0/1/0
+ip route 172.20.0.0 255.255.255.0 s0/1/0
+ip route 172.22.0.0 255.255.255.0 s0/1/0
