@@ -1,0 +1,25 @@
+enable
+config t
+
+hostname SwitchInvitados
+no ip domain-lookup
+service password
+banner motd #
+Personal no autorizado será perseguido por la ley!#
+
+enable password class
+ip default-gateway 192.254.20.126
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 15
+password cisco
+login
+loggin sync
+
+int vlan1
+ip add 192.254.20.1 255.255.255.128
+no shut

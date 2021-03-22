@@ -1,0 +1,37 @@
+enable
+config t
+hostname MyRouter
+
+service password
+no ip domain-lookup
+enable password class
+
+banner motd #
+Personal no autorizado será perseguido por la ley!#
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 15
+password cisco
+login
+loggin sync
+
+int s0/0/0
+desc Interfaz con el ISP
+ip add 132.254.89.241 255.255.255.252
+no shut
+
+int g0/0
+desc Subred de invitados
+ip add 192.254.20.126 255.255.255.128
+no shut
+
+int g0/1
+desc Subred de Residentes
+ip add 192.254.20.190 255.255.255.192
+no shut
+
+ip route 0.0.0.0 0.0.0.0 s0/0/0

@@ -1,0 +1,10 @@
+Chi: 900.000000
+MiuR: 66.000000
+Runs: 1
+Standard Dev: 4.123106
+ZR: 15.764816
+Ho: Considering we use alpha as 0.5 and our degrees of freedom are 3 = 16.9190
+ Ho is rejected because chi 900.000000 is more than 16.9190.
+Ho: Considering we use alpha as 0.5 so z = -1.96/1.96
+ Ho is rejected because our zr 15.764816 is between -1.96, 1.96.
+---------------------------------------------------------------------------------------------------
