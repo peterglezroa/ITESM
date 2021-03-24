@@ -16,3 +16,6 @@
 [submodule "dispmoviles/flutter/actividad-parcial-topi"]
 	path = dispmoviles/flutter/actividad-parcial-topi
 	url = https://github.com/damtecqro/actividad-parcial-topi
+[submodule "security/labs/ChessCode"]
+	path = security/labs/ChessCode
+	url = https://github.com/rodominguez/ChessCode.git

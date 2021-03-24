@@ -1,0 +1,24 @@
+enable
+config t
+
+hostname R1
+
+service password
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 15
+password cisco
+login
+loggin sync
+
+enable password class
+
+int g0/0/1
+desc Interfaz con el switch
+ip add 172.16.99.1 255.255.255.0
+no shut
