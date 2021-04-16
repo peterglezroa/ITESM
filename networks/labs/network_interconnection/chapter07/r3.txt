@@ -1,0 +1,43 @@
+enable
+config t
+
+hostname R3
+
+service password
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 15
+password cisco
+login
+loggin sync
+
+enable password class
+
+int g0/1
+ip add 192.168.30.1 255.255.255.0
+ip access-group 1 out
+no shut
+
+int lo0
+ip add 192.168.40.1 255.255.255.0
+no shut
+
+int s0/1/1
+ip add 10.2.2.1 255.255.255.252
+no shut
+
+router rip
+version 2
+network 192.168.30.0
+network 192.168.40.0
+network 10.2.2.0
+
+access-list 1 remark Allow R1 LANs Access
+access-list 1 permit 192.168.10.0 0.0.0.255
+access-list 1 permit 192.168.20.0 0.0.0.255
+access-list 1 deny any

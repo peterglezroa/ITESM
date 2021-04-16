@@ -1,0 +1,155 @@
+-----------------------------------------------------
+RSucursal
+-----------------------------------------------------
+en
+conf t
+hostname RSucursal
+enable secret class
+service pass
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+logging sync
+
+line vty 0 4
+password cisco
+login
+
+int s0/1/0
+desc Interfaz con ISP
+ip address 132.89.255.253 255.255.255.252
+no shut
+
+! Definición de subinterfaces en int g0/0/0 {10,20,30,40}
+
+int g0/0/0.10
+desc 
+encapsulation dot1q 
+ip add 
+
+
+int g0/0/0
+no shut
+
+
+! Definición de subinterfaces en int g0/0/1 {50,60,70}
+
+int g0/0/1
+desc 
+encapsulation dot1q
+ip 
+
+
+int g0/0/1
+no shut
+
+ip route 0.0.0.0 0.0.0.0 s0/1/0
+
+
+-----------------------------------------------------
+SW WiFi
+-----------------------------------------------------
+en
+conf t
+hostname S-WiFi
+enable secret class
+service pass
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+logging sync
+
+line vty 0 15
+password cisco
+login
+
+! Creación de VLANs con nombre
+vlan 50
+name 
+exit
+
+! Asignación de puertos del switch a la VLAN correspondiente
+int 
+switchport mode access
+switchport access vlan 
+
+! Establecimiento del puerto TRUNK para transportar múltiples VLANs
+int
+switchport mode trunk
+no shut
+
+-----------------------------------------------------
+SW Servicios
+-----------------------------------------------------
+en
+conf t
+hostname S-Servicios
+service pass
+enable secret class
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+logging sync
+
+line vty 0 15
+password cisco
+login
+
+! Creación de VLANs con nombre
+vlan 10
+name Ejecutivos
+exit
+
+! Asignación de puertos del switch a la VLAN correspondiente
+int range 
+switchport mode access
+switchport access vlan 
+
+! Establecimiento del puerto TRUNK para transportar múltiples VLANs
+int range g0/1
+switchport mode trunk
+no shut
+
+-----------------------------------------------------
+SW SATMs
+-----------------------------------------------------
+en
+conf t
+hostname SATMs
+enable secret class
+service pass
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+logging sync
+
+line vty 0 15
+password cisco
+login
+
+! Creación de VLANs con nombre
+vlan 10
+name Ejecutivos
+vlan 20
+name Impresoras
+vlan 30
+name Ventanillas
+vlan 40
+name CajerosATM
+exit
+
+! Asignación de puertos del switch a la VLAN correspondiente
+int range 
+switchport mode access
+switchport access vlan 40
+
+
+
