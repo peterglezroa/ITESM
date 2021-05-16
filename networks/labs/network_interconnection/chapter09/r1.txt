@@ -1,0 +1,45 @@
+enable
+config t
+
+hostname R1
+service password
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 4
+password cisco
+login
+loggin sync
+
+enable password class
+
+int g0/1
+ip add 192.168.10.1 255.255.255.0
+no shut
+
+int lo0
+ip add 192.168.20.1 255.255.255.0
+no shut
+
+int s0/1/0
+ip add 10.1.1.1 255.255.255.252
+clock rate 128000
+no shut
+
+router ospf 1
+network 192.168.10.0 0.0.0.255 area 0
+network 192.168.20.0 0.0.0.255 area 0
+network 10.1.1.0 0.0.0.3 area 0
+
+access-list 100 remark Allow Web & SSH access
+access-list 100 permit tcp host 192.168.10.3 host 10.2.2.1 eq 22
+access-list 100 permit tcp any any eq 80
+
+ip access-list extended 100
+30 permit ip 192.168.10.0 0.0.0.255 192.168.30.0 0.0.0.255
+
+end

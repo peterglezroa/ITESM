@@ -1,0 +1,9 @@
+enable
+config t
+hostname ISP
+no ip domain-lookup
+
+interface Serial0/1/1
+ip address 209.165.200.225 255.255.255.252
+clock rate 128000
+no shutdown

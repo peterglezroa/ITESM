@@ -1,0 +1,46 @@
+enable
+config t
+hostname R2
+no ip domain-lookup
+service password-encryption
+enable secret class
+banner motd #
+Unauthorized access is strictly prohibited. #
+
+line con 0
+password cisco
+login
+logging synchronous
+
+line vty 0 4
+password cisco
+login
+
+int s0/1/0
+ip add 192.168.2.254 255.255.255.252
+no shut
+
+int s0/1/1
+ip add 209.165.200.226 255.255.255.224
+clock rate 128000
+no shut
+
+router rip
+version 2
+network 192.168.2.252
+redistribute static
+no auto-summary
+exit
+ip route 0.0.0.0 0.0.0.0 209.165.200.225
+
+ip dhcp excluded-address 192.168.0.1 192.168.0.9
+ip dhcp excluded-address 192.168.1.1 192.168.1.9
+ip dhcp pool R1G1
+network 192.168.1.0 255.255.255.0
+default-router 192.168.1.1
+dns-server 209.165.200.225
+exit
+ip dhcp pool R1G0
+network 192.168.0.0 255.255.255.0
+default-router 192.168.0.1
+dns-server 209.165.200.225
