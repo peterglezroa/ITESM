@@ -19,3 +19,6 @@
 [submodule "security/labs/ChessCode"]
 	path = security/labs/ChessCode
 	url = https://github.com/rodominguez/ChessCode.git
+[submodule "programmingLanguages/cuda/cudaNN"]
+	path = programmingLanguages/cuda/cudaNN
+	url = git@github.com:peterglezroa/cudaNN.git
