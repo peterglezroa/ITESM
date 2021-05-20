@@ -10,19 +10,30 @@
 #define THREADS_PER_BLOCK 10
 
 __device__ void matrix_dot(int col, int row, int m, int n, int k, float *d_ma, float *d_mb, float *d_mc) {
-    int index = col + row*n;
+    int index = col + row*k; // linearize the index for the resulting matrix
     d_mc[index] = 0;
     for(int i = 0; i < n; i++) {
-        d_mc[index] += d_ma[i + row*n]*d_mb[col+i*n];
+        d_mc[index] += d_ma[i + row*n]*d_mb[col+i*k];
     }
 }
 
 __global__ void valid_matrix_dot(int m, int n, int k, float *d_ma, float *d_mb, float *d_mc) {
+    // Make a mega matrix of the block matrices of the device xd
     int col = threadIdx.x + blockIdx.x*blockDim.x;
     int row = threadIdx.y + blockIdx.y*blockDim.y;
-    if(m > col && n > row) {
+    if(k > col && m > row) {
         matrix_dot(col, row, m, n, k, d_ma, d_mb, d_mc);
     }
+}
+
+void print_matrix(int m, int n, float *a) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            fprintf(stdout, "%f ", a[j+i*n]);
+        }
+        fprintf(stdout, "\n");
+    }
+    fprintf(stdout, "\n");
 }
 
 int main() {
@@ -54,22 +65,22 @@ int main() {
     fprintf(stdout, "Give me the second matrix, separating columns with space and rows with endline.\n");
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < k; j++) {
-            fscanf(stdin, "%f", &mb[k+i*n]);
+            fscanf(stdin, "%f", &mb[j+i*k]);
         }
     }
 
     /* Make space for third matrix */
     mc = (float *)malloc(sizeof(float)*m*k);
 
-    HANDLE_ERROR(cudaMalloc((void**)&d_ma, sizeof(float)*m*n));
-    HANDLE_ERROR(cudaMalloc((void**)&d_mb, sizeof(float)*n*k));
-    HANDLE_ERROR(cudaMalloc((void**)&d_mc, sizeof(float)*m*k));
-    HANDLE_ERROR(cudaMemcpy(d_ma, ma, sizeof(float)*m*n, cudaMemcpyHostToDevice));
-    HANDLE_ERROR(cudaMemcpy(d_mb, mb, sizeof(float)*n*k, cudaMemcpyHostToDevice));
-    HANDLE_ERROR(cudaMemcpy(d_mc, mc, sizeof(float)*m*k, cudaMemcpyHostToDevice));
+    cudaMalloc((void**)&d_ma, sizeof(float)*m*n);
+    cudaMalloc((void**)&d_mb, sizeof(float)*n*k);
+    cudaMalloc((void**)&d_mc, sizeof(float)*m*k);
+    cudaMemcpy(d_ma, ma, sizeof(float)*m*n, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_mb, mb, sizeof(float)*n*k, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_mc, mc, sizeof(float)*m*k, cudaMemcpyHostToDevice);
 
     /* call function */
-    blocks = ceil((THREADS_PER_BLOCK+m*k)/THREADS_PER_BLOCK)
+    blocks = ceil((THREADS_PER_BLOCK+m*k)/THREADS_PER_BLOCK);
     dim3 Blocks(blocks, blocks);
     dim3 Threads(THREADS_PER_BLOCK, THREADS_PER_BLOCK);
     valid_matrix_dot<<<Blocks, Threads>>>(m, n, k, d_ma, d_mb, d_mc);
@@ -78,12 +89,9 @@ int main() {
     cudaMemcpy(mc, d_mc, sizeof(float)*m*k, cudaMemcpyDeviceToHost);
 
     /* print result */
-    for(int i = 0; i < m; i++) {
-        for(int j = 0; j < k; j++) {
-            fprintf(stdout, "%f ", mc[i][j]);
-        }
-        fprintf(stdout, "\n");
-    }
+    //print_matrix(m, n, ma);
+    //print_matrix(n, k, mb);
+    print_matrix(m, k, mc);
 
     free(ma);free(mb);free(mc);
     cudaFree(d_ma);cudaFree(d_mb);cudaFree(d_mc);
