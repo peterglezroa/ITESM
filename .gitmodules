@@ -22,3 +22,6 @@
 [submodule "programmingLanguages/cuda/cudaNN"]
 	path = programmingLanguages/cuda/cudaNN
 	url = git@github.com:peterglezroa/cudaNN.git
+[submodule "security/cortafuegos-diablo"]
+	path = security/cortafuegos-diablo
+	url = git@github.com:JJOL/cortafuegos-diablo.git
