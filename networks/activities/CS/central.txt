@@ -1,0 +1,43 @@
+enable
+config t
+
+hostname RCentral
+service password
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 4
+password cisco
+login
+loggin sync
+
+enable password class
+
+int s0/1/0
+ip add 172.17.3.165 255.255.255.252
+clock rate 128000
+no shut
+
+int s0/1/1
+ip add 172.17.3.162 255.255.255.252
+no shut
+
+int g0/0/0
+ip add 172.17.1.254 255.255.254.0
+no shut
+
+router rip
+version 2
+network 172.17.0.0
+network 172.17.3.160
+network 172.17.3.164
+no auto-summary
+
+ip dhcp exclud 172.17.1.250 172.17.1.254
+ip dhcp pool CentralRosa
+network 172.17.0.0 255.255.254.0
+default-router 172.17.1.254

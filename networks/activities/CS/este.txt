@@ -1,0 +1,49 @@
+enable
+config t
+
+hostname REste
+service password
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 4
+password cisco
+login
+loggin sync
+
+enable password class
+
+int s0/1/0
+desc Router Central
+ip add 172.17.3.166 255.255.255.252
+clock rate 128000
+no shut
+
+int g0/0/0
+desc Area verde
+ip add 172.17.2.254 255.255.255.0
+no shut
+
+int g0/0/1
+desc Area Amarillo
+ip add 172.17.3.126 255.255.255.128
+no shut
+
+router rip
+version 2
+network 172.17.2.0
+network 172.17.3.0
+network 172.17.3.164
+
+ip dhcp exclud 172.17.3.210 172.17.3.216
+ip dhcp exclud 172.17.2.120 172.17.2.126
+ip dhcp pool EsteAmarillo
+network 172.17.3.0 255.255.255.128
+default-router 172.17.3.126
+ip dhcp pool EsteVerde
+network 172.17.2.0 255.255.255.0
+default-router 172.17.2.254

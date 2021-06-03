@@ -1,0 +1,28 @@
+enable
+config t
+
+hostname SwitchUsers
+service password
+no ip domain-lookup
+
+ip domain-name switchusers.com
+crypto key generate rsa
+1024
+username admin password cisco
+service password
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 15
+transport input ssh telnet
+login local
+password cisco
+
+int vlan 1
+ip add 192.168.3.1 255.255.255.128
+no shut
+
+enable password class

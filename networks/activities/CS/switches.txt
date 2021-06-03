@@ -1,0 +1,127 @@
+;; Switch Verde
+enable
+config t
+
+hostname SwitchVerde
+service password
+no ip domain-lookup
+
+ip domain-name switchverde.cisco.com
+crypto key generate rsa
+1024
+username admin password cisco
+service password
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 15
+transport input ssh
+login local
+password cisco
+
+int vlan 1
+ip add 172.17.2.253 255.255.255.0
+no shut
+
+enable password class
+
+
+
+;; Switch Amarillo
+enable
+config t
+
+hostname SwitchAmarillo
+service password
+no ip domain-lookup
+
+ip domain-name switchamarillo.cisco.com
+crypto key generate rsa
+1024
+username admin password cisco
+service password
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 15
+transport input ssh
+login local
+password cisco
+
+int vlan 1
+ip add 172.17.3.126 255.255.255.128
+no shut
+
+enable password class
+
+
+
+
+;; Switch Rosa
+enable
+config t
+
+hostname SwitchRosa
+service password
+no ip domain-lookup
+
+ip domain-name switchrosa.cisco.com
+crypto key generate rsa
+1024
+username admin password cisco
+service password
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 15
+transport input ssh
+login local
+password cisco
+
+int vlan 1
+ip add 172.17.1.253 255.255.254.0
+no shut
+
+enable password class
+
+
+
+
+;; Switch azul
+enable
+config t
+
+hostname SwitchAzul
+service password
+no ip domain-lookup
+
+ip domain-name switchrosa.cisco.com
+crypto key generate rsa
+1024
+username admin password cisco
+service password
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 15
+transport input ssh
+login local
+password cisco
+
+int vlan 1
+ip add 172.17.3.157 255.255.255.224
+no shut
+
+enable password class

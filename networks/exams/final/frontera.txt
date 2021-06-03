@@ -1,0 +1,50 @@
+enable
+config t
+
+hostname RFrontera
+service password
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 4
+password cisco
+login
+loggin sync
+
+enable password class
+
+int s0/1/0
+desc Conexion con ISP
+ip add 223.255.255.250 255.255.255.248
+no shut
+
+int s0/1/1
+desc Conexion con Router interno
+ip add 192.168.3.193 255.255.255.252
+clock rate 128000
+no shut
+
+int g0/1
+desc Conexion con subnet 192.168.3.0
+ip add 192.168.3.126 255.255.255.128
+no shut
+
+router rip
+version 2
+network 192.168.3.0
+network 192.168.3.192
+no auto-summary
+
+ip dhcp pool Users
+network 192.168.3.0 255.255.255.128
+default-router 192.168.3.126
+
+ip access-list extended NOLOL
+deny tcp 192.168.3.0 0.0.0.127 132.254.89.0 0.0.0.15 eq 80
+deny tcp 192.168.3.128 0.0.0.63 132.254.89.0 0.0.0.15 eq 80
+
+ip route 0.0.0.0 0.0.0.0 s0/1/0

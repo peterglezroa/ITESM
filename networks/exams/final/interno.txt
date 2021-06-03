@@ -1,0 +1,43 @@
+enable
+config t
+
+hostname RInterno
+service password
+no ip domain-lookup
+
+line con 0
+password cisco
+login
+loggin sync
+
+line vty 0 4
+password cisco
+login
+loggin sync
+
+enable password class
+
+int s0/1/0
+desc Conexion con router Frontera
+ip add 192.168.3.194 255.255.255.252
+no shut
+
+int g0/1
+desc Conexion con red 192.168.3.128
+ip add 192.168.3.190 255.255.255.192
+no shut
+
+router rip
+version 2
+network 192.168.3.128
+network 192.168.3.192
+no auto-summary
+
+ip dhcp pool UM
+network 192.168.3.128 255.255.255.192
+default-router 192.168.3.190
+
+ip route 0.0.0.0 0.0.0.0 s0/1/0
+
+ip access-list extended NOLOL
+deny tcp 192.168.3.128 0.0.0.63 132.254.89.0 0.0.0.15 eq 80
