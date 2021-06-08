@@ -1,0 +1,41 @@
+## Lambda calculus
+Is the source of several convenient features such as anonymous functions.
+    T
+Can only be used in scheme and lisp languages.
+    F. It can be used on other languages but it is not their primary function.
+Is the source of Logic Programming.
+    T
+
+## Unification
+Is an arithmetic operation for regular expressions.
+    T
+Is a logic operation that verifies if a value satisfies the conditions of a rule.
+    T
+Can only be used in functional programming for recursion purposes.
+    F
+Is another name for passing parameters by reference or copy
+    T
+
+## Race conditions
+Are commonly observed in functional programming.
+    F
+Can happen if two or more processes modify the same object and loose data
+    T
+Can happen only in parallel programming (if you have more than 2 cores)
+    T
+
+## When using graphics cards for processing data
+Performance comparisons are measured in speed up and throughput
+    T
+Kernel calls in CUDA should always be addressed to a _device_ function
+    F. Also __global__
+We use a CUDA compiler which is monolithic (a single big program)
+    T
+
+## Tail, iterative, or right recursion:
+Requires there to be no operations in holding (or context).
+    T
+Can be used to build recursive trees.
+    T
+Can be optimized to iterative time in every compiler where recursion is possible.
+    T
